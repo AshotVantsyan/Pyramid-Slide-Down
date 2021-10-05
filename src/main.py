@@ -1,5 +1,10 @@
 #!/usr/bin/env python3.8
 
+"""
+The entrypoint module for the project.
+This module handles all input values and provides them to the core function.
+"""
+
 import os
 import sys
 import json
@@ -28,7 +33,7 @@ def check_asset_validity(asset: str) -> None:
 
 def get_assets(arguments: List[str]) -> List[str]:
     """
-    Retrurn list of files containing pyramids in JSON format.
+    Return list of files containing pyramids in JSON format.
     If no input argument is provided, JSON-s under 'assets' directory will be used.
     """
     assets = arguments
@@ -46,7 +51,8 @@ def get_assets(arguments: List[str]) -> List[str]:
 
 def get_pyramid_from_asset(asset: str) -> List[List[int]]:
     """
-    The function gets file containing the pyramid in JSON format, validates and return as a list of lists.
+    The function gets file containing the pyramid in JSON format,
+    validates and return as a list of lists.
     """
     with open(asset, 'r', encoding='utf-8') as file:
         pyramid: List[List[int]] = json.load(file)
