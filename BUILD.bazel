@@ -1,0 +1,11 @@
+py_library(
+    name = 'core',
+    srcs = ['src/pyramid_slide_down.py'],
+)
+
+py_binary(
+    name = 'slide-down',
+    main = 'src/main.py',
+    srcs = ['src/main.py'],
+    deps = [':core'],
+)
