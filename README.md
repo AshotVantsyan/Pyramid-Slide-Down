@@ -41,6 +41,10 @@ The code also will be used to pass ["Pyramid Slide Down" Kata](https://www.codew
 
 ## Building
 
+```sh
+bazel build slide-down
+```
+
 ## Usage
 
 There are three ways to use the code:
@@ -48,7 +52,7 @@ There are three ways to use the code:
 1. Run as console application with default behavior:
 
     ```sh
-    slide-down
+    bazel-bin/slide-down
     ```
 
     In this case all assets in JSON format at `./assets` directory will be processes. A user must be sure that valid JSON files (assets) present under `assets` directory.
@@ -56,7 +60,7 @@ There are three ways to use the code:
 2. Run as console application with custom asset(s):
 
     ```sh
-    slide-down my_pyramid.json
+    bazel-bin/slide-down my_pyramid.json
     ```
 
     Please refer `assets` directory of the project for valid JSON file examples.
