@@ -13,7 +13,7 @@ from typing import List
 
 from pyramid_slide_down import longest_slide_down
 
-logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO, name="main")
+logging.basicConfig(format='%(levelname)s: %(message)s', level=logging.INFO)
 logger = logging.getLogger("slide-down")
 
 def check_asset_validity(asset: str) -> None:
