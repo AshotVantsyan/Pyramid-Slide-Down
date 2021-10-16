@@ -1,0 +1,4 @@
+Selected asset(s): assets/major_pyramid.json, assets/middle_pyramid.json, assets/minor_pyramid.json
+Asset: assets/major_pyramid.json, Longest Slide Down: 7273
+Asset: assets/middle_pyramid.json, Longest Slide Down: 1074
+Asset: assets/minor_pyramid.json, Longest Slide Down: 23

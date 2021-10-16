@@ -1,0 +1,1 @@
+'assets' directory hasn't not found

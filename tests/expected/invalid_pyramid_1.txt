@@ -1,0 +1,2 @@
+Selected asset(s): tests/input/invalid_pyramid_1.json
+Invalid pyramid. Expected 1 elements at 1 row, got 0

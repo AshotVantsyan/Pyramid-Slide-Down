@@ -1,0 +1,3 @@
+Invalid JSON is provided.
+Asset: tests/input/invalid_asset.json
+Expecting value: line 1 column 38 (char 37)
