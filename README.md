@@ -45,6 +45,20 @@ The code also will be used to pass ["Pyramid Slide Down" Kata](https://www.codew
 bazel build slide-down
 ```
 
+## Testing
+
+To run the suite:
+
+```sh
+pytest
+```
+
+To run the suite with coverage report:
+
+```sh
+pytest --cov=src
+```
+
 ## Usage
 
 There are three ways to use the code:
