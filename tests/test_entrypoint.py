@@ -7,11 +7,12 @@ The test validates entrypoint of the project.
 import os
 import sys
 import pytest
+from _pytest.logging import LogCaptureFixture
 
 from helpers import get_expected_data_from_file, get_actual_message
-from src.main import main as entrypoint
+from main import main as entrypoint
 
-def test_entrypoint_1(caplog):
+def test_entrypoint_1(caplog: LogCaptureFixture):
     """Test project entrypoint default behavior"""
     sys.argv = ("")
     entrypoint()
@@ -20,7 +21,7 @@ def test_entrypoint_1(caplog):
     assert actual_output == expected_output
 
 @pytest.mark.usefixtures("change_directory")
-def test_entrypoint_2(caplog):
+def test_entrypoint_2(caplog: LogCaptureFixture):
     """Test project entrypoint with default behavior when 'assets' directory is not found."""
     sys.argv = ("")
     with pytest.raises(SystemExit) as exception:
@@ -30,7 +31,7 @@ def test_entrypoint_2(caplog):
     expected_output = get_expected_data_from_file("no_assets_directory.txt")
     assert actual_output == expected_output
 
-def test_entrypoint_3(caplog):
+def test_entrypoint_3(caplog: LogCaptureFixture):
     """Test project entrypoint with non-existing asset"""
     sys.argv = ("", "non-existing-asset.json")
     with pytest.raises(SystemExit) as exception:
@@ -40,7 +41,7 @@ def test_entrypoint_3(caplog):
     expected_output = get_expected_data_from_file("non-existing_asset.txt")
     assert actual_output == expected_output
 
-def test_entrypoint_4(caplog):
+def test_entrypoint_4(caplog: LogCaptureFixture):
     """Test project entrypoint with invalid asset"""
     sys.argv = ("", os.path.join("tests", "input", "invalid_asset.json"))
     with pytest.raises(SystemExit) as exception:
@@ -51,7 +52,7 @@ def test_entrypoint_4(caplog):
     assert actual_output == expected_output
 
 @pytest.mark.parametrize("index", (1, 2))
-def test_entrypoint_5(caplog, index):
+def test_entrypoint_5(caplog: LogCaptureFixture, index: int):
     """Test project entrypoint when incorrect pyramid is provided"""
     sys.argv = ("", os.path.join("tests", "input", f"invalid_pyramid_{index}.json"))
     with pytest.raises(SystemExit) as exception:
@@ -61,7 +62,7 @@ def test_entrypoint_5(caplog, index):
     expected_output = get_expected_data_from_file(f"invalid_pyramid_{index}.txt")
     assert actual_output == expected_output
 
-def test_entrypoint_6(caplog):
+def test_entrypoint_6(caplog: LogCaptureFixture):
     """Test project entrypoint with valid asset"""
     sys.argv = ("", os.path.join("assets", "minor_pyramid.json"))
     entrypoint()

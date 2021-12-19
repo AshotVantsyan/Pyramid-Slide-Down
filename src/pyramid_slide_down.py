@@ -16,4 +16,4 @@ def longest_slide_down(pyramid: List[List[int]]) -> int:
     for row in pyramid[::-1]:
         for i in range(len(row) - 1):
             best_values[i] = max(best_values[i] + row[i], best_values[i+1] + row[i+1])
-    return max(best_values.values()) + row[0]
+    return max(best_values.values()) + pyramid[0][0]
